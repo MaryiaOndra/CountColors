@@ -5,23 +5,48 @@ namespace CountColors
     [RequireComponent(typeof(SpriteRenderer))]
     public class Figure : MonoBehaviour
     {
-        SpriteRenderer figureSpriteRndr;
-        Color[] colors;
+        SpriteRenderer figureSprtRndr;
 
-        public Color FigureColor { get; private set; }
+        public int ActiveColorInt { get; private set; }
 
-        void Start()
+        void Awake()
         {
-            figureSpriteRndr = GetComponent<SpriteRenderer>();
-            colors = new Color[] { Color.white, Color.red, Color.green, Color.blue};
+            figureSprtRndr = GetComponent<SpriteRenderer>();
             SetRandomColor();
         }
 
         void SetRandomColor()
         {
-            int _colorIndx = Random.Range(0, colors.Length);
-            figureSpriteRndr.color = colors[_colorIndx];
-            FigureColor = figureSpriteRndr.color;
+            int _colorIndx = Random.Range(0, (int)FigureColor.Lenght);
+
+            switch (_colorIndx)
+            {
+                case (int)FigureColor.Red:
+                    figureSprtRndr.color = Color.red;
+                    ActiveColorInt = (int)FigureColor.Red;
+                    break;
+                case (int)FigureColor.Blue:
+                    figureSprtRndr.color = Color.blue;
+                    ActiveColorInt = (int)FigureColor.Blue;
+                    break;
+                case (int)FigureColor.Yellow:
+                    figureSprtRndr.color = Color.yellow;
+                    ActiveColorInt = (int)FigureColor.Yellow;
+                    break;
+                case (int)FigureColor.Green:
+                    figureSprtRndr.color = Color.green;
+                    ActiveColorInt = (int)FigureColor.Green;
+                    break;
+            }
         }
+    }
+
+    enum FigureColor 
+    {
+        Red,
+        Yellow,
+        Green,
+        Blue,
+        Lenght
     }
 }

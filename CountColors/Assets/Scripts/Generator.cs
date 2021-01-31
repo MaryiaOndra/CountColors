@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace CountColors
 {
@@ -11,11 +9,29 @@ namespace CountColors
         const float CELL_SIZE = 1.5f;
 
         [SerializeField] GameObject[] figurePrefabs;
-
-        int[,] figureMatrix;
         [SerializeField] float offset = 0.15f;
 
-        void Start()
+        int[,] figureMatrix;
+        ColorCounter colorCounter;
+
+        public  Figure[] GeneratedFigures { get; private set; }
+
+        void Awake()
+        {
+            colorCounter = GetComponent<ColorCounter>();
+            colorCounter.enabled = false;
+
+            GenerateFigureMatrix();
+        }
+
+        private void Start()
+        {
+            GeneratedFigures = GetComponentsInChildren<Figure>();
+
+            colorCounter.enabled = true;
+        }
+
+        void GenerateFigureMatrix() 
         {
             figureMatrix = new int[ROWS, COLUMNS];
 
@@ -44,9 +60,9 @@ namespace CountColors
             }
         }
 
-        void Update()
+        public void CheckAnswer() 
         {
-
+        
         }
     }
 }
