@@ -70,7 +70,7 @@ namespace CountColors
 
             if (ContainsDuplicates(colorAmountsArray))
             {
-                restartTxt.text = "RESTART";
+                restartTxt.text = "MIX COLORS";
                 StartCoroutine("Restart");
             }
             
@@ -143,7 +143,7 @@ namespace CountColors
             }
             else
             {
-                restartTxt.text = "YOU FINISHED!";
+                restartTxt.text = "YOU FINISHED";
                 StartCoroutine("Restart");
             }
         }
