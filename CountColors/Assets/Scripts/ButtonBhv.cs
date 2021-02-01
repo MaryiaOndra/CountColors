@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace CountColors
@@ -22,17 +20,16 @@ namespace CountColors
 
         void CheckColor()
         {
-            maxColorIndex = GameObject.FindObjectOfType<ColorCounter>().MaxAmountColorIndex;
+            ColorCounterManager _colorCounter = GameObject.FindObjectOfType<ColorCounterManager>();
+            maxColorIndex = _colorCounter.MaxAmountColorIndex;
 
             if (BtnColorIndex == maxColorIndex)
             {
-                IsRightColor = true;
-                IsWrongColor = false;
+                _colorCounter.RightAnswerAction(activeButton);
             }
             else
             {
-                IsWrongColor = true;
-                IsRightColor = false;
+                _colorCounter.WrongAnswerAction();
             }
         }
     }

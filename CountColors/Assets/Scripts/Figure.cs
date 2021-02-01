@@ -39,6 +39,11 @@ namespace CountColors
                     break;
             }
         }
+
+        public void HideFigure() 
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     enum FigureColor 

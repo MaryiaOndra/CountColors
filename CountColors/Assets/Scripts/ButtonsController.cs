@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace CountColors
@@ -38,7 +36,7 @@ namespace CountColors
                         break;
                     case (int)FigureColor.Green:
                         _buttonImage.color = Color.green;
-                        _activeBtn.BtnColorIndex = (int)FigureColor.Yellow;
+                        _activeBtn.BtnColorIndex = (int)FigureColor.Green;
                         break;
                 }
             }

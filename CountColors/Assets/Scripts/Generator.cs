@@ -12,13 +12,13 @@ namespace CountColors
         [SerializeField] float offset = 0.15f;
 
         int[,] figureMatrix;
-        ColorCounter colorCounter;
+        ColorCounterManager colorCounter;
 
         public  Figure[] GeneratedFigures { get; private set; }
 
         void Awake()
         {
-            colorCounter = GetComponent<ColorCounter>();
+            colorCounter = GetComponent<ColorCounterManager>();
             colorCounter.enabled = false;
 
             GenerateFigureMatrix();
@@ -58,11 +58,6 @@ namespace CountColors
                     }
                 }
             }
-        }
-
-        public void CheckAnswer() 
-        {
-        
         }
     }
 }
